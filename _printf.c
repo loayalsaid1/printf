@@ -100,8 +100,8 @@ int _printf(const char *format, ...)
                     break;
                 }
             }
-            i++;
         }
+            i++;
     }
     va_end(ap);
 
