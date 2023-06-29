@@ -51,59 +51,59 @@ int _strlen(char *str)
 
 int _printf(const char *format, ...)
 {
-    int i, len;
-    char *str;
-    va_list ap;
+	int i, len;
+	char *str;
+	va_list ap;
 
-    va_start(ap, format);
+	va_start(ap, format);
 
-    if(format == NULL)
-        return (-1);
+	if(format == NULL)
+		return (-1);
 
-    len = 0;
-    i = 0;
-    while(format[i])
-    {
-        if (format[i] != '%' && format[i + 1] != '\0')
-        {
-            _putchar(format[i]);
-            len++;
-        }
-        else
-        {
-            switch (format[i])
-            {
-                case 's':
-                {
-                    str = va_arg(ap, char *);
-                    len += _strlen(str);
-                    _puts(str);
-                    i++;
-                    break;
-                }
-                case 'c':
-                {
-                    _putchar(va_arg(ap, int));
-                    len++;
-                    i++;
-                    break;
-                }
-                case '%':
-                {
-                    _putchar('%');
-                    len++;
-                    i++;
-                    break;
-                }
-                default:
-                {
-                    break;
-                }
-            }
-        }
-            i++;
-    }
-    va_end(ap);
+	len = 0;
+	i = 0;
+	while(format[i])
+	{
+		if (format[i] != '%' && format[i + 1] != '\0')
+		{
+			_putchar(format[i]);
+			len++;
+		}
+		else
+		{
+			switch (format[i])
+			{
+				case 's':
+				{
+					str = va_arg(ap, char *);
+					len += _strlen(str);
+					_puts(str);
+					i++;
+					break;
+				}
+				case 'c':
+				{
+					_putchar(va_arg(ap, int));
+					len++;
+					i++;
+					break;
+				}
+				case '%':
+				{
+					_putchar('%');
+					len++;
+					i++;
+					break;
+				}
+				default:
+				{
+					break;
+				}
+			}
+		}
+			i++;
+	}
+	va_end(ap);
 
-    return (len);
+	return (len);
 }
