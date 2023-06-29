@@ -49,6 +49,12 @@ int _strlen(char *str)
 	return (counter);
 }
 
+/**
+ * _printf -  simulate printf
+ * @format: the string
+ * @...: the variadic variabels
+ * Return: the resl
+*/
 int _printf(const char *format, ...)
 {
 	int i, len;
@@ -66,8 +72,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%' && format[i + 1] != '\0')
 		{
-			_putchar(format[i]);
-			len++;
+			if (format[i] == '\\' && format[i + 1] == 'n')
+			{
+				_putchar('\n');
+				len++;
+				i++;
+			}
+			else
+			{
+				_putchar(format[i]);
+				len++;
+			}
 		}
 		else
 		{
