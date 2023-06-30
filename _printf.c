@@ -124,19 +124,19 @@ int _printf(const char *format, ...)
 	return (len);
 }
 
-	/*
 	int main(void)
 	{
-		char *string = "loay";
+		int len, len2;
+		/* char *string = "loay";*/
 
-		int len = printf("%!\n");
-		printf("%d\n", len);
-
-		int len2 = _printf("%!\n");
+		len2 = _printf("%K\n");
 		printf("%d\n", len2);
 
+		len = printf("%K\n");
+		printf("%d\n", len);
 
-	/*
+/*
+
 		// _printf("red."); DONE
 		// _printf("\n"); DONE
 		// _printf("\nred"); DONE 
@@ -154,8 +154,6 @@ int _printf(const char *format, ...)
 		// _printf("%s %s", string, string); DONE
 		// _printf("%s\n%s", string, string); DONE
 		// _printf("%s.\n.%s", string, srting); DONE 
-		// _printf("%s", "adsfas");
-	*/
-	/*	return 0;
+		// _printf("%s", "adsfas");*/
+		return 0;
 }
-*/
