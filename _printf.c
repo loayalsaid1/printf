@@ -20,7 +20,6 @@ int _putchar(char c)
 void _puts(char *str)
 {
 	int i;
-
 	for (i = 0; str[i] != '\0'; i++)
 		_putchar(str[i]);
 }
@@ -70,27 +69,15 @@ int _printf(const char *format, ...)
 	i = 0;
 	while(format[i])
 	{
-		if (format[i] != '%' && format[i + 1] != '\0')
-		{
-			if (format[i] == '\\' && format[i + 1] == 'n')
-			{
-				_putchar('\n');
-				len++;
-				i++;
-			}
-			else
-			{
-				_putchar(format[i]);
-				len++;
-			}
-		}
-		else
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			switch (format[i + 1])
 			{
 				case 's':
 				{
 					str = va_arg(ap, char *);
+					if (str == NULL)
+						str = "(null)";
 					len += _strlen(str);
 					_puts(str);
 					i++;
@@ -112,9 +99,23 @@ int _printf(const char *format, ...)
 				}
 				default:
 				{
+					_putchar('%');
+					_putchar(format[i + 1]);
+					len += 2;
+					i++;
 					break;
 				}
 			}
+		}
+		else if (format[i] == '%' && format[i + 1] == '\0')
+		{
+			i++;
+			break;
+		}
+		else
+		{
+			_putchar(format[i]);
+			len++;
 		}
 		i++;
 	}
@@ -122,3 +123,39 @@ int _printf(const char *format, ...)
 
 	return (len);
 }
+
+	/*
+	int main(void)
+	{
+		char *string = "loay";
+
+		int len = printf("%!\n");
+		printf("%d\n", len);
+
+		int len2 = _printf("%!\n");
+		printf("%d\n", len2);
+
+
+	/*
+		// _printf("red."); DONE
+		// _printf("\n"); DONE
+		// _printf("\nred"); DONE 
+		// _printf("\nred\n"); DONE
+		// _printf("\nred\nred");  DONE
+		// _printf("\nred\nred\n"); DONE
+		// _printf("my name is: %s", string); DONE 
+		// _printf("my name is: %s\n", string); DONE
+		// _printf("%s is my name \n", string); DONE
+		// _printf("%s is my name ", string); DONE
+		// _printf(".%s is my name \n", string); DONE
+		// _printf("%s", string); DONE
+		// _printf("\n"); DONE
+		// _printf("%s\n", string); DONE
+		// _printf("%s %s", string, string); DONE
+		// _printf("%s\n%s", string, string); DONE
+		// _printf("%s.\n.%s", string, srting); DONE 
+		// _printf("%s", "adsfas");
+	*/
+	/*	return 0;
+}
+*/
