@@ -123,37 +123,3 @@ int _printf(const char *format, ...)
 
 	return (len);
 }
-
-	int main(void)
-	{
-		int len, len2;
-		/* char *string = "loay";*/
-
-		len2 = _printf("%K\n");
-		printf("%d\n", len2);
-
-		len = printf("%K\n");
-		printf("%d\n", len);
-
-/*
-
-		// _printf("red."); DONE
-		// _printf("\n"); DONE
-		// _printf("\nred"); DONE 
-		// _printf("\nred\n"); DONE
-		// _printf("\nred\nred");  DONE
-		// _printf("\nred\nred\n"); DONE
-		// _printf("my name is: %s", string); DONE 
-		// _printf("my name is: %s\n", string); DONE
-		// _printf("%s is my name \n", string); DONE
-		// _printf("%s is my name ", string); DONE
-		// _printf(".%s is my name \n", string); DONE
-		// _printf("%s", string); DONE
-		// _printf("\n"); DONE
-		// _printf("%s\n", string); DONE
-		// _printf("%s %s", string, string); DONE
-		// _printf("%s\n%s", string, string); DONE
-		// _printf("%s.\n.%s", string, srting); DONE 
-		// _printf("%s", "adsfas");*/
-		return 0;
-}
